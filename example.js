@@ -4,16 +4,21 @@ const dbName = 'example-mongoose';
 // CREATE AN INSTANCE OF CONNECTION TO DATABASE - `example-mongoose`  
 mongoose.connect(`mongodb://localhost/${dbName}`);
 
+
+
 // CREATE A MODEL
 /* Mongoose models are JavaScript constructor functions that 
 create objects to be stored in a specific collection, 
 and are connected to that collection  */
 const Cat = mongoose.model('cat', { name: String });
-
 const Dog = mongoose.model('Dog', { name: String })
+
+
+
 
 // CALL MODEL TO CREATE A DOCUMENT INSTANCE (STRUCTURED OBJECT)
 const kitty = new Cat({ name: 'Ironhacker'});
+
 
 
 
@@ -22,8 +27,10 @@ kitty.save( (err) => {
   if (err) console.log(err); // if instance cannot be saved for some reason
   else console.log('instance saved to DB');
 });
-
 // `save()` method on the model is equivalent to `insertOne` command 
+
+
+
 
 
 // RETRIEVE ALL THE DOCUMENTS FROM THE COLLECTION `cats`
@@ -41,12 +48,16 @@ Cat.find({})
 
 
 
+
+// USING PROMISE ALL TO AWAIT FOR COMPLETION OF MULTIPLE QUERIES
 let promise1 = Cat.insertMany([ {name: 'marbles'}, {name: 'fluffy'}, {name: 'tiger'}])
 let promise2 = Dog.insertMany([ {name: 'daisy'}, {name: 'buddy'}, {name: 'bella'}])
 
 Promise.all( [promise1, promise2] )
   .then( (result) => console.log('Promise.all result: ', result))
   .catch(err => console.error(err));
+
+
 
 
 
