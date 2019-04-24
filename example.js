@@ -11,7 +11,7 @@ mongoose.connect(`mongodb://localhost/${dbName}`);
 create objects to be stored in a specific collection, 
 and are connected to that collection  */
 const Cat = mongoose.model('cat', { name: String });
-const Dog = mongoose.model('Dog', { name: String })
+const Dog = mongoose.model('Dog', { name: String });
 
 
 
