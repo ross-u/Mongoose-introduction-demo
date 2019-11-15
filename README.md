@@ -109,9 +109,9 @@ const dbName = 'example-mongoose';
 mongoose.connect(
   `mongodb://localhost:27017/${dbName}`, 
   {
-  	useNewUrlParser: true,
-  	useUnifiedTopology: true,
-	}
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
 );
 ```
 
@@ -165,9 +165,9 @@ and are connected to that collection  */
 
 const Cat = mongoose.model(
   'Cat', 
-  { 									// SCHEMA OBJECT
+  {                 // SCHEMA OBJECT
     name: String,
-  	color: String,
+    color: String,
   });
 ```
 
